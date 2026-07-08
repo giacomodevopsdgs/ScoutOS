@@ -1,0 +1,34 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "scoutos"
+version = "0.1.0"
+description = "Personal web intelligence agent for discovering, ranking, and monitoring opportunities."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+  { name = "giacomodevopsdgs" }
+]
+dependencies = []
+
+[project.optional-dependencies]
+browser = [
+  "playwright>=1.45"
+]
+dev = [
+  "pytest>=8.2",
+  "ruff>=0.5"
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/scoutos"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
