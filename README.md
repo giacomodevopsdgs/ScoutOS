@@ -34,12 +34,22 @@ src/scoutos/extractors/     Source-specific extraction modules
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-pip install -e "[dev,browser]"
-python -m playwright install
+pip install -e ".[dev]"
+scout shopping search --query "running wireless earbuds" --max-price 40
 ```
 
 ScoutOS does not commit secrets, cookies, browser state, or SQLite database files. Use `.env`, local browser profiles, or a local `data/` directory for private runtime state.
 
+Browser automation is intentionally not required for the current Shopping Scout dry run. Install
+the optional browser extra only when working on future live extraction:
+
+```bash
+pip install -e ".[browser]"
+python -m playwright install
+```
+
 ## Status
 
-Early-stage project developed incrementally through small, validated vertical slices.
+Early-stage project developed incrementally through small, validated vertical slices. The current
+Shopping Scout dry run uses running-earbuds fixture data, a default Decision Profile, and
+deterministic evaluation.

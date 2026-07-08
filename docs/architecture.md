@@ -19,7 +19,7 @@ Examples:
 ## Standard Pipeline
 
 ```text
-Search -> Extract -> Normalize -> Score -> Rank -> Notify
+Search -> Extract -> Normalize -> Evaluate -> Rank -> Notify
 ```
 
 ## Core Concepts
@@ -27,6 +27,8 @@ Search -> Extract -> Normalize -> Score -> Rank -> Notify
 - `Opportunity` is the normalized item ScoutOS evaluates, regardless of source.
 - `ExtractedItem` is raw structured data emitted by an extractor before normalization.
 - `ScoreBreakdown` captures transparent scoring components and reasons.
+- `DecisionProfile` captures durable preferences and decision rules used during evaluation.
+- `Evaluation` captures score, action, reasons, risks, and confidence for an opportunity.
 - `Extractor` is a source-specific adapter that can later use Playwright, HTTP, feeds, or APIs.
 - `Scout` is the domain-specific orchestrator that connects intent, source, extraction, scoring, ranking, and notification.
 
@@ -63,9 +65,10 @@ Examples:
 - ScoreBreakdown
 - Recommendation
 
-### Scoring Engine
+### Evaluation Layer
 
-The scoring engine evaluates opportunities using deterministic rules first.
+The evaluation layer evaluates opportunities against a Decision Profile using deterministic rules
+first. It returns an Evaluation with score, action, reasons, risks, and confidence.
 
 AI reasoning can be added later for explanation, summarization, ambiguity handling, and subjective trade-offs.
 
