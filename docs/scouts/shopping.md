@@ -25,6 +25,24 @@ This use case is useful because it exercises:
 - sustainability and minimalism principles
 - recommendation explanation
 
+## Sprint 1 Dry Run
+
+The first implemented vertical slice is intentionally fixture-based:
+
+```bash
+scout shopping search --query "frullatore" --max-price 60
+```
+
+Pipeline:
+
+```text
+Search fixture -> Extract -> Normalize -> Score -> Rank -> Print recommendations
+```
+
+This dry run does not use Playwright, live scraping, SQLite, notifications, or LLM calls.
+It validates the pipeline shape with deterministic scoring before adding real marketplace
+automation.
+
 ## Candidate Fields
 
 A normalized shopping opportunity should ideally include:

@@ -26,12 +26,21 @@ src/scoutos/extractors/     Source-specific extraction modules
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-pip install -e ".[dev,browser]"
-python -m playwright install
+pip install -e ".[dev]"
+scout shopping search --query "frullatore" --max-price 60
 ```
 
 ScoutOS does not commit secrets, cookies, browser state, or SQLite database files. Use `.env`, local browser profiles, or a local `data/` directory for private runtime state.
 
+Browser automation is intentionally not required for the Sprint 1 Shopping Scout dry run. Install
+the optional browser extra only when working on future live extraction:
+
+```bash
+pip install -e ".[browser]"
+python -m playwright install
+```
+
 ## Status
 
-Initial scaffold.
+Sprint 1 dry-run vertical slice: fixture-backed Shopping Scout search, normalization,
+deterministic scoring, ranking, and terminal recommendations.

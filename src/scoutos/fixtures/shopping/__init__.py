@@ -1,0 +1,2 @@
+"""Shopping Scout fixture data."""
+
