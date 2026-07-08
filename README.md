@@ -1,6 +1,13 @@
 # ScoutOS
 
-ScoutOS is a personal web intelligence agent for discovering, evaluating, ranking, and monitoring opportunities across shopping deals, job openings, flights and travel, real estate, events, and price tracking.
+ScoutOS is a personal decision intelligence platform that discovers, evaluates, ranks, monitors, and helps act on opportunities across shopping, jobs, travel, real estate, events, learning, and other domains.
+
+ScoutOS does not optimize for finding more opportunities. It optimizes for making better decisions.
+
+The project is built around two core concepts:
+
+- **Opportunity** — something worth evaluating.
+- **Decision Profile** — how opportunities should be evaluated for a specific person.
 
 The project is designed around a small Python core with source-specific extractors, normalized opportunity models, reusable scoring, and future-ready persistence for SQLite.
 
@@ -8,14 +15,15 @@ The project is designed around a small Python core with source-specific extracto
 
 - Discover opportunities from web pages, feeds, saved searches, and alerts.
 - Extract structured candidates with Playwright-ready browser automation.
-- Rank candidates using transparent scoring rules and LLM-assisted judgment.
+- Rank candidates using transparent scoring rules and AI-assisted reasoning where it adds value.
 - Monitor changes over time, including price drops, new listings, and stale results.
+- Help users make explainable, value-aligned decisions rather than simply presenting search results.
 - Keep credentials, cookies, browser profiles, and local databases out of git.
 
 ## Project Layout
 
 ```text
-docs/                       Architecture, runbook, and use cases
+docs/                       Architecture, runbook, and methodology
 prompts/                    Ranking prompt templates
 src/scoutos/                Python package
 src/scoutos/extractors/     Source-specific extraction modules
@@ -26,7 +34,7 @@ src/scoutos/extractors/     Source-specific extraction modules
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-pip install -e ".[dev,browser]"
+pip install -e "[dev,browser]"
 python -m playwright install
 ```
 
@@ -34,4 +42,4 @@ ScoutOS does not commit secrets, cookies, browser state, or SQLite database file
 
 ## Status
 
-Initial scaffold.
+Early-stage project developed incrementally through small, validated vertical slices.
